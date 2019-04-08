@@ -1,0 +1,45 @@
+<div class="container">
+  <mat-card class="authentication">
+    <mat-card-title>Sign in to Fontymon</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+
+        <p>
+          <mat-form-field>
+            <input formControlName="username" matInput placeholder="Username" type="text">
+            <mat-error *ngIf="f.username.errors?.required">
+              Username is required
+            </mat-error>
+            <mat-error *ngIf="f.username.errors?.email">
+              email error
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field>
+            <label>
+              <input formControlName="password" matInput placeholder="Password" type="password">
+            </label>
+            <mat-error *ngIf="f.password.errors?.required">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <button class="mat-button" mat-raised-button type="submit">Login</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="register">
+    <mat-card-content>
+
+      <p>
+        New to Fontymon? <a [routerLink]="['/register']">Create an account.</a>
+      </p>
+
+    </mat-card-content>
+  </mat-card>
+</div>

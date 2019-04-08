@@ -1,0 +1,58 @@
+<div class="container">
+  <mat-card class="registration">
+    <mat-card-title>Join Fontymon</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+
+        <p>
+          <mat-form-field>
+            <input formControlName="username" matInput placeholder="Username" type="text">
+            <mat-error *ngIf="f.username.errors?.required">
+              Username is required
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field>
+            <input formControlName="email" matInput placeholder="Email" type="text">
+            <mat-error *ngIf="f.email.errors?.required">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="f.email.errors?.email">
+              Invalid email
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field>
+            <input formControlName="password" matInput placeholder="Password" type="password">
+            <mat-error *ngIf="f.password.errors?.required">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="f.password.errors?.minlength">
+              Make sure it's at least 8 characters including a number
+            </mat-error>
+            <mat-icon *ngIf="f.password.valid">
+
+            </mat-icon>
+          </mat-form-field>
+        </p>
+
+        <button mat-raised-button type="submit">Create an account</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="authenticate">
+    <mat-card-content>
+
+      <p>
+        Already got an account? <a [routerLink]="'/login'">Login instead</a>
+      </p>
+
+    </mat-card-content>
+  </mat-card>
+</div>
