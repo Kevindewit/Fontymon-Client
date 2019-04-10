@@ -27,16 +27,17 @@
 
         <p>
           <mat-form-field>
-            <input formControlName="password" matInput placeholder="Password" type="password">
-            <mat-error *ngIf="f.password.errors?.required">
-              Password is required
-            </mat-error>
+            <div class="password">
+              <input formControlName="password" matInput placeholder="Password" type="password">
+              <mat-icon *ngIf="f.password.valid">
+                done
+              </mat-icon>
+            </div><mat-error *ngIf="f.password.errors?.required">
+            Password is required
+          </mat-error>
             <mat-error *ngIf="f.password.errors?.minlength">
               Make sure it's at least 8 characters including a number
             </mat-error>
-            <mat-icon *ngIf="f.password.valid">
-
-            </mat-icon>
           </mat-form-field>
         </p>
 
